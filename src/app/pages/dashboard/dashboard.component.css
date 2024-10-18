@@ -1,0 +1,39 @@
+.nav-menu {
+    width: 220px; /* Ancho del navbar */
+    height: 100vh; /* Alto completo de la pantalla */
+    position: fixed; /* Fijo en la pantalla */
+  }
+
+  .content {
+    margin-left: 220px; /* Deja espacio para el navbar */
+    width: calc(100% - 220px); /* Resto del ancho */
+    position: relative;
+  }
+
+  .container-full {
+    min-height: 100vh; /* Ocupa todo el alto de la pantalla */
+    display: flex;
+    align-items: center; /* Alinea el contenido verticalmente */
+  }
+
+  .image-background {
+    background-image: url('/assets/img/bienvenida.jpg');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    width: 87.5vw;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+}
+
+
+  .text-content {
+    width: 20%;
+    position: absolute; /* Permite posicionarlo de forma libre */
+    top: 20px; /* Distancia desde la parte superior */
+    left: 108%;
+    z-index: 1; /* Asegura que el texto esté por delante */
+    padding: 10px; /* Espaciado interno */
+    color: #fff; /* Color del texto */
+}

@@ -1,0 +1,76 @@
+.nav-menu {
+    width: 220px; /* Ancho del navbar */
+    height: 100vh; /* Alto completo de la pantalla */
+    position: fixed; /* Fijo en la pantalla */
+  }
+
+  .content {
+    margin-left: 220px; /* Deja espacio para el navbar */
+    width: calc(100% - 220px); /* Resto del ancho */
+    position: relative;
+  }
+
+  .container-full {
+    min-height: 100vh; /* Ocupa todo el alto de la pantalla */
+    display: flex;
+    align-items: center; /* Alinea el contenido verticalmente */
+  }
+
+  .image-background {
+    background-image: url('/assets/img/version.jpg'); /* Ruta a tu imagen */
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    width: 87.5vw;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .worker-info {
+    display: flex;
+    gap: 100px;
+    justify-content: flex-end;
+    margin-right: 80px;
+}
+
+.worker-info p{
+  font-size: 1.1rem;
+  color: rgb(10, 52, 68);
+  font-weight: bold;
+}
+.worker-info a{
+  font-family:monospace;
+  font-size: 0.9rem;
+  color: rgb(10, 52, 68);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.worker-card {
+    margin-top: 110px;
+    background-color: rgba(231, 240, 243, 0.514);
+    padding: 30px;
+    border: solid 4px  rgba(177, 199, 195, 0.164);;
+    border-radius: 10px;
+    text-align: center;
+    width: 280px;
+}
+
+.worker-image {
+    width:150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+
+  .text-content {
+    position: absolute; /* Permite posicionarlo de forma libre */
+    top: 20px; /* Distancia desde la parte superior */
+    right: 20px; /* Distancia desde el lado derecho */
+    z-index: 1; /* Asegura que el texto esté por delante */
+    padding: 10px; /* Espaciado interno */
+    color: #fff; /* Color del texto */
+}

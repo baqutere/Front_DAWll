@@ -1,0 +1,46 @@
+<div class="login-container container d-flex align-items-center justify-content-center vh-100">
+  <form [formGroup]="loginForm" class="p-4 shadow-lg rounded bg-white w-100" style="max-width: 400px;">
+    <h2 class="mb-4 text-center">Iniciar Sesión</h2>
+
+    <!-- Mensaje de error general -->
+    <p class="text-danger text-center" *ngIf="loginError">{{loginError}}</p>
+
+    <!-- Campo de Email -->
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input formControlName="username" type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresa tu email">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form-text text-danger">
+        <div *ngIf="email.errors?.['required']">El Email es requerido.</div>
+        <div *ngIf="email.errors?.['email']">El Email debe tener un formato válido.</div>
+      </div>
+    </div>
+
+    <!-- Campo de Password -->
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresa tu contraseña">
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="form-text text-danger">
+        <div *ngIf="password.errors?.['required']">La contraseña es requerida.</div>
+      </div>
+    </div>
+
+    <!-- Botón de Iniciar Sesión -->
+    <div class="d-grid mb-2">
+      <button type="submit" (click)="login()" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+    </div>
+
+    <!-- Link para recuperar contraseña -->
+    <div class="text-center">
+      <a href="#" class="text-decoration-none text-secondary">
+        ¿Olvidaste la contraseña?
+        <span class="ingresa-aqui-hover fst-italic text-decoration-underline">ingresa aquí</span>
+      </a>
+    </div>
+
+
+
+  </form>
+
+  <!-- Imagen de fondo opcional o logo -->
+  <img src="/assets/img/logo.png" alt="Logo" class="position-absolute bottom-right-image" style="position: absolute; bottom: 20px; right: 20px; max-width: 150px;">
+</div>

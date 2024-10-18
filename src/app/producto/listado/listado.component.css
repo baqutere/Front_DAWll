@@ -1,0 +1,81 @@
+.container {
+  padding: 35px;
+  margin: 140px 0 0 160px;
+  background-color: #32769e15;
+  width: 90%;
+  max-width: 1400px
+}
+
+h1 {
+  font-size: 32px;
+  color: #32779E;
+  font-weight: bold;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th {
+  background-color: #136658b9;
+  color: white;
+  padding: 12px;
+}
+
+.table tr:nth-child(even) {
+  background-color: #fdfffb;
+}
+
+.table tr:nth-child(odd) {
+  background-color: white;
+}
+
+.img-thumbnail {
+  margin: 2px;
+  border: 1px solid #ddd;
+  background-color: white;
+}
+
+.btn-primary {
+  background-color: #369BE5;
+  border-color: #32779E;
+}
+
+.btn-primary:hover {
+  background-color: #1284b8;
+}
+
+#BotonEdit{
+  background-color: #ca6817c9;
+  border-color: #ca6817c9;
+}
+
+#BotonEdit:hover {
+  background-color: #d6b709;
+  border-color: #d6b709;
+}
+
+#BotonDetalle{
+  background-color: #d1d1e7;
+  border-color: #d1d1e7;
+}
+#BotonDetalle:hover {
+  background-color: #be99d4;
+}
+
+
+#BotonBuscar{
+  padding: 0.3rem;
+  background-color: #369BE5;
+  border-color: #32779E;
+}
+#BotonBuscar:hover {
+  background-color: #1284b8;
+}
+
+.mb-3, .mt-4, .me-2, .ms-auto {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+}

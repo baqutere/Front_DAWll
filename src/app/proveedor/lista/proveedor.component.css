@@ -1,0 +1,104 @@
+.container {
+  padding: 35px;
+  margin: 45px;
+  background-color: #32769e15;
+  width: 90%;
+  max-width: 1400px
+}
+
+
+h1 {
+  margin-top: 25px;
+  font-size: 35px;
+  color: #32779E;
+  font-weight: bold;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th {
+  background-color: #136658b9;
+  color: white;
+  padding: 12px;
+}
+
+.table tr:nth-child(even) {
+  background-color: #fdfffb;
+}
+
+.table tr:nth-child(odd) {
+  background-color: white;
+}
+
+/* Estilo para botones */
+.btn-primary {
+  background-color: #369BE5;
+  border-color: #32779E;
+}
+
+.btn-primary:hover {
+  background-color: #1284b8;
+}
+
+#BotonEdit{
+  background-color: #ca6817c9;
+  border-color: #ca6817c9;
+}
+
+#BotonEdit:hover {
+  background-color: #d6b709;
+  border-color: #d6b709;
+}
+
+#BotonDetalle{
+  background-color: #d1d1e7;
+  border-color: #d1d1e7;
+}
+#BotonDetalle:hover {
+  background-color: #be99d4;
+}
+
+
+#BotonBuscar{
+  background-color: #369BE5;
+  border-color: #32779E;
+}
+#BotonBuscar:hover {
+  background-color: #1284b8;
+}
+
+/* Estilo para el grupo de entrada */
+.input-group {
+  margin-top: 20px; /* Margen superior para separación */
+}
+
+.input-group input {
+  border-radius: 0.25rem; /* Bordes redondeados */
+  border: 1px solid #ced4da; /* Color de borde gris */
+}
+
+.input-group button {
+  background-color: #6c757d;
+  color: white;
+  margin-left: 0.5rem;
+}
+
+.input-group button:hover {
+  background-color: #5a6268;
+}
+
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.me-2 {
+  margin-right: 0.5rem;
+}

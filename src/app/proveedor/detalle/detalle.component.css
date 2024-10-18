@@ -1,0 +1,57 @@
+.container {
+  max-width: 900px;
+  margin:  630px;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.text-center h2 {
+  color: #32779E;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el formulario */
+.form-wrapper {
+  background-color: #ffffff;
+  padding: 20px; /* Espaciado interno */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgb(231, 217, 217); /* Sombra */
+}
+
+/* Estilos para  etiquetas de campos */
+.form-label {
+  font-weight: bold;
+  color: #645e5e;
+}
+
+.form-control {
+  border: 2px solid #32769e49;
+  border-radius: 4px;
+}
+
+.form-control:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+input[readonly] {
+  background-color: #f7f7f7;
+  cursor: not-allowed;
+
+}
+.col-12.text-center.mt-4 {
+  margin-top: 20px;
+}

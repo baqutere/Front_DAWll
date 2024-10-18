@@ -1,0 +1,98 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  max-width: 450px;
+  width: 100%;
+  background-color: #f0eded;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Título*/
+h2 {
+  font-size: 1.75rem;
+  color: #2b778a;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+/* inputs */
+input[type="email"],
+input[type="password"] {
+  border: 1px solid #009688;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(139, 94, 60, 0.5); /* Resplandor marrón */
+}
+
+/* mensajes de error */
+.text-danger {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Botones  */
+button[type="submit"],
+a.btn-register {
+  margin-top: 0.5rem;
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+button[type="submit"] {
+  background-color: #3985c4;
+  color: #fff;
+  border: none;
+}
+
+button[type="submit"]:hover {
+  background-color: #003f79;
+}
+
+.ingresa-aqui-hover {
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.ingresa-aqui-hover:hover {
+  color: #ff5733;
+  text-decoration-color: #ff5733;
+}
+
+/* restablecer contraseña */
+a.text-secondary {
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+a.text-secondary:hover {
+  color: #699600;
+  text-decoration: underline;
+}
+
+/* logo */
+.bottom-right-image {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  max-width: 150px;
+  opacity: 0.8;
+}

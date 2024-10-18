@@ -1,0 +1,10 @@
+
+  
+  .container {
+    background-image: url('/assets/img/logo.png'); /* Ruta a tu imagen */
+    background-repeat: no-repeat;
+    background-position: right bottom; /* Posiciona la imagen abajo a la derecha */
+    background-size: 200px 90px; /* Ajusta el tamaño según tus necesidades */
+    min-height: 50vh; /* Asegúrate de que ocupe al menos el alto de la pantalla */
+  }
+  
