@@ -36,13 +36,13 @@
       <tbody>
           <tr *ngFor="let producto of productos">
             <td>{{producto.id}}</td>
-            <td>
+            <!-- <td>
               <img src="{{producto.imagen}}" alt="Imagen de {{producto.nomPro}}" class="img-thumbnail" style="max-width: 50px;"/>
-            </td>
+            </td> -->
             <td>{{producto.codPro}}</td>
             <td>{{producto.nomPro}}</td>
             <td>{{producto?.objProveedor?.nomProvee}}</td>
-            <td>{{producto.precio | currency}}</td>
+            <!-- <td>{{producto.precio | currency}}</td> -->
             <td>{{producto.fechaCompra | date:'dd/MM/yyyy'}}</td>
             <td>{{producto.stock}}</td>
             <td>

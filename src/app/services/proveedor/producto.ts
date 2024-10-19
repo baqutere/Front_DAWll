@@ -4,6 +4,6 @@ export interface Producto{
 
     id: number;
 	nomPro: String;
-    objProveedor: Proveedor;
+    proveedor: Proveedor;
 	
 }

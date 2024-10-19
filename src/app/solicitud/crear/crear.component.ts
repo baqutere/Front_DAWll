@@ -16,7 +16,7 @@ export class SolicitudCrearComponent {
   producto: Producto ={
     id: 0,
     nomPro: "",
-    objProveedor:{
+   proveedor:{
       id: 0,
       ruc: "",
       nomProvee: "",
@@ -29,8 +29,10 @@ export class SolicitudCrearComponent {
   nuevaSolicitud: Solicitud ={
     id: 0,
 	 idPro: 0,
+   nombreProducto: '',
 	 cantidad: 0,
 	 idProveedor: 0,
+   nombreProveedor: '',
 	 correo: '',
 	 fecha: new Date() ,
 	 descripcion: '',
@@ -41,8 +43,10 @@ export class SolicitudCrearComponent {
 
   registrarSolicitud(){
     this.nuevaSolicitud.idPro = this.producto.id
-    this.nuevaSolicitud.idProveedor = this.producto.objProveedor.id
-    this.nuevaSolicitud.correo = this.producto.objProveedor.email
+    this.nuevaSolicitud.nombreProducto = this.producto.nomPro
+    this.nuevaSolicitud.idProveedor = this.producto.proveedor.id
+    this.nuevaSolicitud.nombreProveedor = this.producto.proveedor.nomProvee
+    this.nuevaSolicitud.correo = this.producto.proveedor.email
     this.solicitudService.registrar(this.nuevaSolicitud).
     subscribe(Response =>{
       console.log('Solicitud Registrado',Response);
@@ -50,8 +54,10 @@ export class SolicitudCrearComponent {
       this.nuevaSolicitud ={
         id: 0,
         idPro: 0,
+        nombreProducto: '',
         cantidad: 0,
         idProveedor: 0,
+        nombreProveedor: '',
         correo: '',
         fecha: new Date() ,
         descripcion: '',
@@ -61,7 +67,7 @@ export class SolicitudCrearComponent {
       this.producto = {
         id: 0,
         nomPro: "",
-        objProveedor:{
+      proveedor:{
           id: 0,
           ruc: "",
           nomProvee: "",
@@ -70,17 +76,17 @@ export class SolicitudCrearComponent {
           direccion: ""
         }
       }
-      this.router.navigate(['solicitud/lista']);
+      this.router.navigate(['/solicitud/crear']);
     },
     error =>{
-      console.error('Error al registrar el solicitud',error)
+      console.error('Error al registrar el proveedor',error)
     }
     
   );
   }
 
   buscarProducto(name: String) {
-    this.productoService.buscarProducto(name).subscribe(data =>{
+    this.solicitudService.buscarProducto(name).subscribe(data =>{
       this.producto = data[0];
     });
   }

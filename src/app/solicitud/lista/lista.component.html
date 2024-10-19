@@ -1,7 +1,9 @@
 <div class="d-flex" style="height: 100vh;">
   <app-nav class="flex-shrink-0" style="width: 250px; height: 100vh; overflow-y: auto;"></app-nav>
 
-  <div class="container mt-0 flex-grow-1" style="height: calc(100vh - 1rem); overflow-y: auto;">
+  <div class="d-flex flex-column align-items-center" style="width: 100vw; padding-top: 10vh;">
+
+    <div class="container mt-0 flex-grow-1" style="height: calc(100vh - 1rem); overflow-y: auto;">
       <h1 class="text-center mb-4"> LISTADO SOLICITUDES </h1>
       <button type="button" class="btn btn-primary" (click)="irRegistroSolicitud()">Requerimiento</button>
       <br><br>
@@ -9,8 +11,8 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Id Producto</th>
-            <th>Id Proveedor</th>
+            <th>Producto</th>
+            <th>Proveedor</th>
             <th>Correo</th>
             <th>Cantidad</th>
             <th>Fecha</th>
@@ -19,13 +21,13 @@
         </thead>
         <tbody>
          <tr *ngFor="let solicitud of solicitudes">
-            <td>{{solicitud.id}}</td>
-            <td>{{solicitud.objProducto?.nomPro}}</td>
-            <td>{{solicitud.objProducto?.objProveedor?.nomProvee}}</td>
-            <td>{{solicitud.objProducto?.objProveedor?.email}}</td>
-            <td>{{solicitud.cantidad}}</td>
-            <td>{{solicitud.fecha}}</td>
-            <td>{{solicitud.descripcion}}</td>
+          <td>{{solicitud.id}}</td>
+          <td>{{solicitud.nombreProducto}}</td>
+          <td>{{solicitud.nombreProveedor}}</td>
+          <td>{{solicitud.correo}}</td>
+          <td>{{solicitud.cantidad}}</td>
+          <td>{{solicitud.fecha}}</td>
+          <td>{{solicitud.descripcion}}</td>
           </tr>
         </tbody>
 
@@ -42,4 +44,8 @@
         <img src="assets/img/Logo.png" alt="Logo" style="max-width: 200px; margin-top: 15%; " />
       </div>
   </div>
+
+  </div>
+  
+
 </div>
