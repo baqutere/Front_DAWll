@@ -11,25 +11,25 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductoService {
   proveedores: Proveedor[] = [];
-  private baseUrl = 'http://localhost:8080/auth/producto';
+  private baseUrl = 'http://localhost:8082/api/producto';
 
   constructor(private http: HttpClient, private proveedorService: ProveedorService) { }
 
   public listar(): Observable<Producto[]>{
-    return this.http.get<Producto[]>(environment.urlHost+"auth/producto/listado");
+    return this.http.get<Producto[]>(this.baseUrl);
   }
 
   public obtenerProducto(id: number): Observable<Producto>{
-    return  this.http.get<Producto>(environment.urlHost+"auth/producto"+ `/${id}`);
+    return  this.http.get<Producto>(this.baseUrl + `/${id}`);
   }
   public registrar(producto: Producto): Observable<any>{
-    return this.http.post<any>(environment.urlHost+"auth/producto/registrar",producto);
+    return this.http.post<any>(this.baseUrl,producto);
   }
   public buscar(name: String): Observable<Producto[]>{
-    return  this.http.get<Producto[]>(environment.urlHost+"auth/producto/buscar" + `?name=${name}`);
+    return  this.http.get<Producto[]>(this.baseUrl + `/buscar?name=${name}`);
   }
   public editar(id: number, producto: Producto):Observable<any>{
-    return this.http.put(environment.urlHost+"auth/producto" + `/${id}`,producto)
+    return this.http.put(this.baseUrl + `/${id}`,producto)
   }
   public eliminar(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);

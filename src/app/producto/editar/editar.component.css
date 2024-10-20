@@ -1,10 +1,88 @@
+.container {
+  max-width: 1300px;
+  width: 1200px;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
 
-  
-  .container {
-    background-image: url('/assets/img/logo.png'); /* Ruta a tu imagen */
-    background-repeat: no-repeat;
-    background-position: right bottom; /* Posiciona la imagen abajo a la derecha */
-    background-size: 200px 90px; /* Ajusta el tamaño según tus necesidades */
-    min-height: 50vh; /* Asegúrate de que ocupe al menos el alto de la pantalla */
-  }
-  
+
+h1 {
+  font-size: 32px;
+  color: #32779E;
+  font-weight: bold;
+}
+h2 {
+  margin-top: 25px;
+  color: #32779E;
+  margin-bottom: 20px;
+}
+
+
+.form-label {
+  margin: 5px 0 0 30px;
+
+  font-weight: bold;
+  color: #555;
+}
+
+select{
+  margin: 5px 0 0 30px;
+
+}
+
+.form-control {
+  margin: 5px 0 0 30px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 10px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+
+.btn-primary {
+  margin-left: 750px;
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.btn {
+  margin-top: 10px;
+
+  width:150px;
+  margin-bottom: 4px;
+}
+
+.btn:last-child {
+  margin-bottom: 0;
+}
+
+.btn-danger {
+  margin-left: 750px;
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333; }
+
+.d-flex {
+  display: flex;
+  justify-content: flex-end;
+}

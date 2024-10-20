@@ -13,28 +13,33 @@ import { ProveedorService } from 'src/app/services/proveedor/proveedor.service';
 })
 export class RegistrarComponent {
 
+  productos: Producto[] = [];
   proveedores: Proveedor[];
   newProducto: Producto ={
     id: 0,
     codPro: '',
     nomPro: '',
-    proveedor: 0,
+    proveedorId: 0,
+    proveedorNombre:'',
     stock: 0,
     precio : 0,
     fechaCompra: new Date(),
   }
+  private codigoContador: number = 0; // Contador inicial
 
-  private codigoContador: number = 1; // Contador inicial
   constructor(
     private productoService: ProductoService, 
     private proveedorService: ProveedorService, 
     private router: Router,
     private route: ActivatedRoute,
     
-  ) { this.autoAsignarCodigo();}
+  ) { }
 
   ngOnInit(){
-    //this.obtenerProducto();
+    const id = this.route.snapshot.queryParams['listSize'];
+    this.codigoContador=Number(id)+2;
+    this.autoAsignarCodigo(); // Genera el código automáticamente al inicializar
+    
     this.proveedorService.listar().subscribe(
       (data: any[]) => {
         this.proveedores = data;
@@ -51,45 +56,61 @@ export class RegistrarComponent {
       response =>{this.newProducto = response},
     );
   }
-  registrarProducto() {
-    console.log('Atencion llego con éxito: ',this.newProducto);
-    
+  registrarProducto() {  
     this.productoService.registrar(this.newProducto).subscribe(
         Response => {
-        console.log('Atencion Registrada con éxito: ', Response);
+        //console.log('Atencion Registrada con éxito: ', Response);
+        // Incrementar el contador solo si el registro fue exitoso
+        
+        this.codigoContador++;
           this.newProducto = {
             id: 0,
             codPro: '',
             nomPro: '',
-            proveedor: 0,
+            proveedorId: 0,
+            proveedorNombre:'',
             stock: 0,
             precio : 0,
             fechaCompra: new Date(),
           };
+          
+             // Asignar un nuevo código para el siguiente producto
+          this.autoAsignarCodigo();
+          console.log('Atencion Registrada con éxito: ', Response);
           this.router.navigate(['/producto/listar']);
         },
         error =>{
           console.error('Error al registrar el producto',error)
         }
-        
       );
-      }
-      regresar() {
+     return this.regresar();
+    }
+
+    regresar() {
         this.router.navigate(['producto/listar'])
       }
 
-      autoAsignarCodigo() {
+    autoAsignarCodigo() {
         this.newProducto.codPro = this.generarCodigo();
       }
     
       generarCodigo(): string {
-        // Formatear el número con ceros a la izquierda
-        const codigoFormateado = String(this.codigoContador).padStart(4, '0');
-        const codigoFinal = 'PROD-' + codigoFormateado;
-    
-        // Incrementar el contador para el siguiente producto
-        this.codigoContador++;
-    
-        return codigoFinal;
-      }
+          // Formatear el número con ceros a la izquierda
+
+          this.productoService.listar().subscribe(data =>{
+            this.productos = data;
+            this.productos.forEach(element => {
+              this.codigoContador++;
+            });
+          
+          });
+          const codigoFormateado = String(this.codigoContador).padStart(4, '0');
+          const codigoFinal = 'PROD-' + codigoFormateado;
+          // Incrementar el contador para el siguiente producto
+
+      
+          return codigoFinal;
+        }
+       
+
 }

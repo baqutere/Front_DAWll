@@ -1,19 +1,24 @@
 <div class="d-flex" style="height: 100vh;">
   <!-- Barra de navegación -->
-  <app-nav class="flex-shrink-0" style="width: 250px; height: 100vh; overflow-y: auto;"></app-nav>
+  <app-nav class="flex-shrink-0" style="width: 220px; height: 100vh; overflow-y: auto;"></app-nav>
 
   <!-- Contenido principal -->
-  <div class="container mt-0 flex-grow-1" style="height: calc(100vh - 1rem); overflow-y: auto;">
+  <div class="flex-grow-1" style="overflow-y: auto;">
+    <div class="container mt-0" style="height: 110%;">
     <h1 class="text-center mb-4">LISTADO DE PRODUCTOS</h1>
 
     <!-- Botón para agregar nuevo producto y búsqueda -->
     <div class="mb-3 d-flex justify-content-between align-items-center">
-      <button type="button" class="btn btn-primary" (click)="registrarProducto()">
+      <button type="button" class="btn btn-primary" (click)="registrarProducto(listSize)">
         + Nuevo Producto
       </button>
       <div class="d-flex align-items-center">
         <input type="text" class="form-control me-2" [(ngModel)]="nomPro" placeholder="Buscar producto" style="flex: 1;" />
-          <button (click)="buscarProducto(nomPro)" class="btn btn-primary" id="BotonBuscar"> Buscar</button>
+        <button (click)="buscarProducto(nomPro)" class="btn btn-primary" id="BotonBuscar">
+          <i class="fas fa-search" style="color: white;"></i> Buscar
+        </button> | <button (click)="limpiar()" class="btn btn-primary" id="BotonLimpiar">
+          <i class="fas fa-eraser" style="color: white;"></i> Limpiar
+        </button>
 
       </div>
     </div>
@@ -23,7 +28,7 @@
         <thead >
           <tr>
             <th>ID</th>
-            <th>Imagen</th>
+           <!--<th>Imagen</th>-->
             <th>Código</th>
             <th>Nombre</th>
             <th>Proveedor</th>
@@ -41,16 +46,17 @@
             </td> -->
             <td>{{producto.codPro}}</td>
             <td>{{producto.nomPro}}</td>
-            <td>{{producto?.objProveedor?.nomProvee}}</td>
+            <td>{{producto.proveedorNombre}}</td>
+            <td>{{producto.precio}}</td>
             <!-- <td>{{producto.precio | currency}}</td> -->
             <td>{{producto.fechaCompra | date:'dd/MM/yyyy'}}</td>
             <td>{{producto.stock}}</td>
             <td>
               <button (click)="editarProducto(producto.id)" class="btn btn-info btn-sm">
-                <i class="fa fa-pencil-alt"></i> Editar
+                <i class="fa fa-pencil-alt"></i> 
               </button>
               <button (click)="eliminarProducto(producto.id)" class="btn btn-danger btn-sm ms-1">
-                <i class="fa fa-trash-alt"></i> Eliminar
+                <i class="fa fa-trash-alt"></i> 
               </button>
             </td>
           </tr>
@@ -71,4 +77,5 @@
       </div>
     </div>
   </div>
+</div>
 

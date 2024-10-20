@@ -18,7 +18,8 @@ export class EditarComponent {
     id: 0,
     codPro: '',
     nomPro: '',
-    proveedor: 0,
+    proveedorId: 0,
+    proveedorNombre:'',
     stock: 0,
     precio : 0,
     fechaCompra: new Date(),
@@ -30,33 +31,33 @@ constructor(
   private router: Router, 
   private route: ActivatedRoute) {
 }
+
 ngOnInit(){
   this.obtenerProducto();
 }
-obtenerProducto(){
 
+obtenerProducto(){
   const id = this.route.snapshot.params['id'];
   console.log(id);
   this.productoService.obtenerProducto(id).subscribe(
     (data: any) => {
       this.editProductos = data;
-      console.log(data);
-      console.log(this.editProductos);
-      this.proveedorService.getProveedores().subscribe(
-        (data: any[]) => {
-          this.proveedores = data;
-        },
-        (error) => {
-          console.error('Error al obtener los proveedores', error);
-        }
-      )
     },
     (error) => {
       console.error('Error al obtener el producto', error);
     }
   );
+  this.proveedorService.listar().subscribe(
+    (prov: any[]) => {
+      this.proveedores = prov;
+    },
+    (error) => {
+      console.error('Error al obtener los proveedores', error);
+    }
+  );
   console.log(this.editProductos);
 }
+
 actualizarProducto() {
   this.productoService.editar(this.editProductos.id, this.editProductos).subscribe(response => {
     console.log('Producto registrado con exito', response);
@@ -67,6 +68,7 @@ actualizarProducto() {
     }
     );
   }
+
   regresar() {
     this.router.navigate(['producto/listar'])
   }
