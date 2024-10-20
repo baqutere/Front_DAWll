@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   login(){
     if(this.loginForm.valid){
       this.loginError="";
-      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+      this.loginService.login1(this.loginForm.value as LoginRequest).subscribe({
         next: (userData) => {
           console.log(userData);
         },

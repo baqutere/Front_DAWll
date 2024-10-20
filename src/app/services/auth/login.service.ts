@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginRequest } from './loginRequest';
 import  {  Observable, throwError, catchError, BehaviorSubject , tap, map} from 'rxjs';
@@ -16,6 +16,22 @@ export class LoginService {
   constructor(private http: HttpClient) { 
     this.currentUserLoginOn=new BehaviorSubject<boolean>(sessionStorage.getItem("token")!=null);
     this.currentUserData=new BehaviorSubject<String>(sessionStorage.getItem("token") || "");
+  }
+
+  login1(credentials:LoginRequest): Observable<any> {
+    const params = new HttpParams()
+      .set('email', credentials.username)
+      .set('password', credentials.password);
+
+    return this.http.get<string>(environment.urlApiAuth, { params, responseType: 'text' as 'json' }).pipe(
+      tap((token: string) => {
+        sessionStorage.setItem("token", token);
+        this.currentUserData.next(token);
+        this.currentUserLoginOn.next(true);
+      }),
+      map((token: string) => token),
+      catchError(this.handleError)
+    );
   }
 
   login(credentials:LoginRequest):Observable<any>{
